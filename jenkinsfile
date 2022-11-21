@@ -4,10 +4,9 @@ pipeline {
   maven 'Maven'
 }
 
-    triggers {
-  pollSCM('* * * * *')
-    }
-
+ triggers {
+  pollSCM '* * * * * '
+}
     stages {
         stage('maven package') {
             steps {
@@ -17,7 +16,7 @@ pipeline {
             }
         }
 
-          stage('test') {
+          stage('testing') {
             steps {
                 sh'mvn test'
                 
